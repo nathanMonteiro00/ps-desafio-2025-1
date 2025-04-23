@@ -25,3 +25,5 @@ require __DIR__.'/auth.php';
 
 // Rotas Veiculos
 Route::apiResource('veiculos', VeiculosController::class)->except(['create', 'show', 'edit']);
+
+Route::patch('/veiculos/{veiculo}/comprar', [VeiculosController::class, 'comprar']);
