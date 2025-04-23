@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Veiculos;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Categorias;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,5 +22,10 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
         $user->assignPermission('admin');
+
+        Categorias::factory(5)->create();
+        Veiculos::factory(10)->create();
     }
+
+
 }
