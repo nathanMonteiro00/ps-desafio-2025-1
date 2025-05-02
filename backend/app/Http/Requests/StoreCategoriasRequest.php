@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CategoriasRequest extends FormRequest
+class StoreCategoriasRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,15 @@ class CategoriasRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nome' => ['required', 'string', 'unique:categorias,nome']
+        ];
+    }
+
+    public function message(): array
+    {
+        return [
+            'nome.unique' => 'Você está tentando criar uma categoria que já existe.',
+            'nome.required' => 'Este campo deve ser preenchido.'
         ];
     }
 }

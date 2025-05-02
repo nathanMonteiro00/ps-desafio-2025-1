@@ -25,4 +25,11 @@ class ComprarVeiculoRequest extends FormRequest
             'quantidade' => ['required', 'min:1', 'integer']
         ];
     }
+
+    public function message(): array
+    {
+        return [
+            'quantidade.min' => 'Informe a quantidade de produtos que deseja comprar.'
+        ];
+    }
 }

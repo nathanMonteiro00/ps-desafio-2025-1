@@ -16,9 +16,10 @@ import { DialogUpdateCategory } from './dialog-update-category'
 import { DialogCategoryDelete } from './dialog-delete-category'
 import { DialogInformationCategory } from './dialog-information-category'
 import { DialogCreateCategory } from './dialog-create-category'
+import { api } from '@/services/api'
 
 export default async function ListCategory() {
-  const { response } = null // requisicao para api
+  const { response } = await api<categoryType[]>('GET', '/categorias') // requisicao para api
 
   if (!response) {
     return (
@@ -51,7 +52,7 @@ export default async function ListCategory() {
           <TableBody>
             {categories?.map((category: categoryType) => (
               <TableRow key={category.id}>
-                <TableCell>{category.name}</TableCell>
+                <TableCell>{category.nome}</TableCell>
                 <TableCell className="flex justify-end gap-2">
                   <DialogInformationCategory id={category.id}>
                     <Button variant="default-inverse" size="icon">

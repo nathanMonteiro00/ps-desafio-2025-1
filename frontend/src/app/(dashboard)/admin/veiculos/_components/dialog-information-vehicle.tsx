@@ -30,7 +30,7 @@ export function DialogInformationVehicle({
 
   useEffect(() => {
     const requestData = async () => {
-      const { response } = null // requisicao para api
+      const { response } = await api<vehicleType>('GET', `/veiculos/${id}`) // requisicao para api
 
       if (response) {
         setVehicle(response)

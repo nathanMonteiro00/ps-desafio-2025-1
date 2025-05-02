@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Categorias;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,8 +21,8 @@ class VeiculosFactory extends Factory
             'nome' => $this->faker->name(),
             'marca' => $this->faker->word(),
             'ano_fabricacao' => $this->faker->year(),
-            'img' => $this->faker->imageUrl(),
-            'categoria_id' => $this->faker->numberBetween(1, 5),
+            'img' => 'https://picsum.photos/'.rand(150, 300), 
+            'categoria_id' => Categorias::inRandomOrder()->first()->id,
             'qtd_estoque' => $this->faker->randomNumber(2),
         ];
     }

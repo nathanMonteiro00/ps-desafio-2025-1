@@ -12,15 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('veiculos', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('nome');
             $table->string('marca');
             $table->year('ano_fabricacao');
-            $table->string('img');
-            $table->unsignedBigInteger('categoria_id');
+            $table->string('img')->nullable();
+            $table->foreignUuid('categoria_id')->constrained('categorias');
             $table->integer('qtd_estoque');
-
-            $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
         });
     }
 

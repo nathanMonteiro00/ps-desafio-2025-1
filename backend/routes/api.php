@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriasController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -21,9 +22,14 @@ Route::get('/', function () {
     return ['Laravel' => app()->version()];
 });
 
-require __DIR__.'/auth.php';
-
 // Rotas Veiculos
-Route::apiResource('veiculos', VeiculosController::class)->except(['create', 'show', 'edit']);
+Route::apiResource('veiculos', VeiculosController::class)->except(['create', 'edit']);
 
 Route::patch('/veiculos/{veiculo}/comprar', [VeiculosController::class, 'comprar']);
+
+// Rotas Categorias
+Route::apiResource('categorias', CategoriasController::class)->except(['create', 'edit']);
+
+require __DIR__.'/auth.php';
+
+
