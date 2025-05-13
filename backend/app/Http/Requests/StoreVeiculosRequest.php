@@ -22,7 +22,7 @@ class StoreVeiculosRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nome' => ['required','min:3'],
+            'nome' => ['required','min:2'],
             'marca'=> ['required'],
             'ano_fabricacao'=> ['required','digits:4'],
             'img'=> ['nullable','file'],

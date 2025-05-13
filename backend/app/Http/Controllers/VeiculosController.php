@@ -30,7 +30,7 @@ class VeiculosController extends Controller
     {
         $veiculos = $this->veiculo->with('categorias')->get();
 
-        return response()->json($veiculos, Response::HTTP_OK);
+        return response()->json($veiculos, Response::HTTP_OK); 
 
     }
 
@@ -44,8 +44,6 @@ class VeiculosController extends Controller
         if ($qtd > $veiculo->qtd_estoque){
             return response()->json(['message' => 'Não há veículos suficientes.'], 422);
         }
-
-        // Adicionar lógica de disponibilidade de veículo?
 
         $veiculo->qtd_estoque -= $qtd;
         $veiculo->save();
