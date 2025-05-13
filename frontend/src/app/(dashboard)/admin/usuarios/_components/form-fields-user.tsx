@@ -33,7 +33,8 @@ export default function FormFieldsUser({
   return (
     <>
       <FormFieldsGroup>
-        {user && <Input defaultValue={user.id} type="text" name="id" hidden />}
+        {user && <Input defaultValue={user.id} type="text" name="id" hidden />
+        }
         <FormField>
           <Label htmlFor="name" required={!user}>
             Nome

@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Barriecito&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+.page{
+    font-family: "Arina", system-ui;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background: rgb(235, 231, 231);
+    position: relative;
+    padding-bottom: 340px;
+}
+
+.wrapper{
+    margin: 2rem;
+    display: grid;
+    gap: 3.0rem 1.8rem;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 18rem));
+    justify-content: center;
+    transition: all 0.5s ease; 
+}
+
+.infos{
+    display: flex;
+    justify-content: center;
+    margin: 100px 0px 50px;
+    font-size: 40px;
+    color: rgb(4, 4, 51);
+    font-family: "Rubik", sans-serif;    
+}
+
+@media screen and (max-width: 700px){
+    .wrapper{
+        grid-template-columns: 1fr;
+    }
+
+    .infos{
+        font-size: 20px;
+        flex-direction: column;
+        align-items: center; 
+    }
+}
+

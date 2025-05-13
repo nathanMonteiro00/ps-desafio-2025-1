@@ -1,0 +1,123 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+.card{
+    font-family: "Noto Sans", sans-serif;
+    box-shadow: 0 0 10px 5px rgba(157, 157, 157, 0.2);
+    height: fit-content;
+    min-height: 24rem;
+    min-width: 16rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 18rem;
+    border-radius: 5px;
+    transition: transform 0.25s ease;
+    cursor: pointer;
+}
+
+.card:hover{
+    transform: scale(1.1);
+    z-index: 100;
+}
+
+.card_name{
+    color: rgba(29, 28, 28, 0.861);
+    font-weight: bold;
+    font-size: 18px;
+    padding-top: 10px;
+}
+
+.card_img{
+    height: 16rem;
+    width:100%;
+    object-fit: cover;
+    border-radius: 5px 5px 0 0;
+}
+
+.card_body{
+    border-radius: 0 0 10px 10px;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: rgb(223, 223, 227);
+    padding: 10px;
+    text-align: left;
+}
+
+.card_categoria{
+    color: rgba(68, 66, 66, 0.697);
+}
+
+.card_marca{
+    font-weight: bold;
+    color: rgb(253, 160, 0);
+}
+
+.card_name, .card_categoria{
+    line-height: 100%;
+    margin: 1vh 0;
+}
+
+.buy_button{
+    display: inline;
+    padding: 10px;
+    border: 1px none;
+    background-color: rgb(0, 89, 255);
+    color: white;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+
+
+.buy_button:hover{
+    background-color: rgb(81, 141, 250);
+}
+
+@media screen and (max-width: 700px){
+    .card{
+        flex-direction: row;
+        width: 90vw;
+        height: fit-content;
+        max-height: 160px;
+        min-height: 100px;
+    }
+
+    .card_img{
+        max-width: 35vw;
+        height: auto;
+        border-radius: 10px 0 0 10px;
+    }
+
+    .card_body{
+        border-radius: 0 10px 10px 0;
+        max-height: none;
+    }
+
+    .card_name{
+        font-size: 25px;
+    }
+
+    .card_categoria{
+        font-size: 15px;
+    }
+
+    .buy_button{
+    
+        max-width: 70%;
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .card_categoria{
+        font-size: 13px;
+    }
+
+    .card_name{
+        font-size: 20px;
+    }
+}

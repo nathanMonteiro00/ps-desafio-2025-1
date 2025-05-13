@@ -37,7 +37,7 @@ export default async function ListVehicles() {
         <DialogCreateVehicle>
           <Button size="sm">
             <LuPlusCircle />
-            Novo livro
+            Novo veículo
           </Button>
         </DialogCreateVehicle>
       </DashboardContainer>
@@ -59,8 +59,8 @@ export default async function ListVehicles() {
                   <TabbleCellImage src={vehicle.img} />
                 </TableCell>
                 <TableCell>{vehicle.nome}</TableCell>
-                <TableCell>{vehicle.marca}</TableCell>
-                <TableCell>{vehicle.categoria_id.nome}</TableCell>
+                <TableCell>{vehicle.categorias.nome}</TableCell>
+                <TableCell>{vehicle.qtd_estoque}</TableCell>
                 <TableCell className="flex justify-end gap-2">
                   <DialogInformationVehicle id={vehicle.id}>
                     <Button variant="default-inverse" size="icon">
@@ -82,7 +82,7 @@ export default async function ListVehicles() {
             ))}
           </TableBody>
           {!vehicles.length && (
-            <TableCaption>Nenhum livro encontrado.</TableCaption>
+            <TableCaption>Nenhum veículo encontrado.</TableCaption>
           )}
         </Table>
       </DashboardContainer>

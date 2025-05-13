@@ -1,4 +1,5 @@
 export type userType = {
+  
   id: string
   name: string
   email: string
@@ -7,4 +8,5 @@ export type userType = {
   created_at: Date
   updated_at: Date
   permissions: string[]
+
 }

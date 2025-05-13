@@ -8,7 +8,7 @@ export type vehicleType = {
   marca: string
   ano_fabricacao: number
   img: string
-  categoria_id: categoryType
+  categorias: categoryType
   qtd_estoque: number
 
 }

@@ -29,14 +29,14 @@ export function DialogUpdateVehicle({ id, children }: DialogUpdateVehicleProps) 
 
   useEffect(() => {
     const requestData = async () => {
-      const { response } = await api<vehicleType>('GET', `/vehicles/${id}`)
+      const { response } = await api<vehicleType>('GET', `/veiculos/${id}`)
 
       if (response) {
         setVehicle(response)
       } else {
         setVehicle(null)
         toast({
-          title: 'Livro  não encontrado!',
+          title: 'Veículo  não encontrado!',
         })
         setOpen(false)
       }
@@ -53,16 +53,16 @@ export function DialogUpdateVehicle({ id, children }: DialogUpdateVehicleProps) 
   const submit = async (form: FormData) => {
     const newForm = await filterFormData(form)
 
-    const { response } = await api<vehicleType>('GET', `/veiculos/${id}`) // requisicao para api
+    const { error } = await JSON.parse(await updateVehicle(newForm))
 
     if (error) {
       setError(error)
       toast({
-        title: 'Não foi possível editar o livro!',
+        title: 'Não foi possível editar o veículo!',
       })
     } else {
       toast({
-        title: 'Livro editado com sucesso!',
+        title: 'Veículo editado com sucesso!',
       })
       setOpen(false)
     }
@@ -73,9 +73,9 @@ export function DialogUpdateVehicle({ id, children }: DialogUpdateVehicleProps) 
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Editar livro</DialogTitle>
+          <DialogTitle>Editar Veículo</DialogTitle>
           <DialogDescription>
-            Atualize as informações do livro abaixo e clique em
+            Atualize as informações do veículo abaixo e clique em
             &quot;Salvar&quot; para aplicar as alterações.
           </DialogDescription>
         </DialogHeader>
