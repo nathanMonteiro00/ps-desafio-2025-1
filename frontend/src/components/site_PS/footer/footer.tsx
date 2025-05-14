@@ -6,41 +6,74 @@ import { FaPhone } from "react-icons/fa6";
 import { FaHouseChimneyWindow } from "react-icons/fa6";
 import { FaMapPin } from "react-icons/fa";
 
-export default function Footer(){
+// export default function Footer(){
+//     return (
+//         <footer className={style.footer}>
+
+//             <p className={style.address_title}>
+//                 Endereço
+//             </p>
+//             <div className={style.address}>
+
+//                 <span className={style.street}>
+//                     <FaMapPin></FaMapPin> Rua nao sei o que la das quantas
+//                 </span>
+
+//                 <span className={style.avenue}>
+//                     <FaHouseChimneyWindow /> Avenida Othovarino Duarte Santos, número 78
+//                 </span>
+
+//                 <span className={style.phone}>
+//                     <FaPhone></FaPhone> Telefone: (33) 99877-2344
+//                 </span>
+//             </div>
+
+//             <div className={style.teste}>
+//                 Mais uma div
+//             </div>
+
+//             <div className={style.social_media}>
+//                 <a href="https://www.instagram.com/adaptiempresajr/" target="blank_" className={style.social_link} id="instagram"> <FaInstagram className={style.icon}></FaInstagram>
+//                 </a> 
+//                 <a href="https://github.com/nathanMonteiro00" target="blank_" className={style.social_link} id="GitHub"><FaGithub className={style.icon}></FaGithub>
+//                 </a>
+//                 <a href="https://www.linkedin.com/in/nathan-monteiro-b016692a0/" target="blan_" className={style.social_link} id="Linkedin"><FaLinkedin className={style.icon}></FaLinkedin>
+//                 </a>
+//             </div>                              
+
+//         </footer>
+//     )
+// }
+export default function Footer() {
     return (
         <footer className={style.footer}>
+            <div className={style.container}>
+                {/* Coluna 1 - Endereço */}
+                <div className={style.address}>
+                    <p className={style.address_title}>Endereço e contato</p>
+                    <span className={style.street}>
+                        <FaMapPin /> Rua nao sei o que la das quantas
+                    </span>
+                    <span className={style.avenue}>
+                        <FaHouseChimneyWindow /> Avenida Othovarino Duarte Santos, número 78
+                    </span>
+                    <span className={style.phone}>
+                        <FaPhone /> Telefone: (33) 99877-2344
+                    </span>
+                </div>
 
-            <p className={style.address_title}>
-                Endereço
-            </p>
-            <div className={style.address}>
+                {/* Coluna 2 - Informação extra */}
+                <div className={style.copyright}>
+                    <p>© {new Date().getFullYear()} Adapti Veículos. Todos os direitos reservados.</p>
+                </div>
 
-                <span className={style.street}>
-                    <FaMapPin></FaMapPin> Rua nao sei o que la das quantas
-                </span>
-
-                <span className={style.avenue}>
-                    <FaHouseChimneyWindow /> Avenida Othovarino Duarte Santos, número 78
-                </span>
-
-                <span className={style.phone}>
-                    <FaPhone></FaPhone> Telefone: (33) 99877-2344
-                </span>
+                {/* Coluna 3 - Redes sociais */}
+                <div className={style.social_media}>
+                    <a href="https://www.instagram.com/adaptiempresajr/" target="_blank" className={style.social_link}><FaInstagram className={style.icon} /></a>
+                    <a href="https://github.com/nathanMonteiro00" target="_blank" className={style.social_link}><FaGithub className={style.icon} /></a>
+                    <a href="https://www.linkedin.com/in/nathan-monteiro-b016692a0/" target="_blank" className={style.social_link}><FaLinkedin className={style.icon} /></a>
+                </div>
             </div>
-
-            <div className={style.teste}>
-                Mais uma div
-            </div>
-
-            <div className={style.social_media}>
-                <a href="https://www.instagram.com/adaptiempresajr/" target="blank_" className={style.social_link} id="instagram"> <FaInstagram className={style.icon}></FaInstagram>
-                </a> 
-                <a href="https://github.com/nathanMonteiro00" target="blank_" className={style.social_link} id="GitHub"><FaGithub className={style.icon}></FaGithub>
-                </a>
-                <a href="https://www.linkedin.com/in/nathan-monteiro-b016692a0/" target="blan_" className={style.social_link} id="Linkedin"><FaLinkedin className={style.icon}></FaLinkedin>
-                </a>
-            </div>                              
-
         </footer>
-    )
-}                                                                   
+    );
+}
