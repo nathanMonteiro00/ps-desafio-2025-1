@@ -11,8 +11,10 @@ import Footer from "@/components/site_PS/footer/footer"
 import Slider from "@/components/site_PS/slider/slider"
 
 export default function Home() {
-
   const [vehicles, setVehicles] = useState<vehicleType[] | undefined>()
+  const [marcas, setMarcas] = useState<string[]>([])
+  const [categorias, setCategorias] = useState<string[]>([])
+
   const { toast } = useToast()
   const [busca, setBusca] = useState<string>("")
 
@@ -27,6 +29,12 @@ export default function Home() {
 
       if (response) {
         setVehicles(response)
+
+        const marcasUnicas = Array.from(new Set(response.map(veiculo => veiculo.marca)))
+        const categoriasUnicas = Array.from(new Set(response.map(veiculo => veiculo.categorias.nome)))
+
+        setMarcas(marcasUnicas)
+        setCategorias(categoriasUnicas)
       } else {
         toast({
           title: "Veículos não encontrados.",
@@ -39,14 +47,14 @@ export default function Home() {
   const veiculosFiltrados = vehicles?.filter((veiculo) => {
     const buscaLower = busca.toLowerCase()
 
-    const condBusca = 
+    const condBusca =
       veiculo.nome.toLowerCase().includes(buscaLower) ||
       veiculo.marca.toLowerCase().includes(buscaLower) ||
       veiculo.categorias.nome.toLowerCase().includes(buscaLower)
 
     const condMarca = filtros.marca ? veiculo.marca === filtros.marca : true
     const condCategoria = filtros.categoria ? veiculo.categorias.nome === filtros.categoria : true
-    const condEstoque =  veiculo.qtd_estoque > 0 
+    const condEstoque = veiculo.qtd_estoque > 0
 
     return condBusca && condMarca && condCategoria && condEstoque
   })
@@ -73,11 +81,11 @@ export default function Home() {
             onChange={(e) => setFiltros({ ...filtros, marca: e.target.value })}
           >
             <option value="">Marcas</option>
-            <option value="HONDA">Honda</option>
-            <option value="CHEVROLET">Chevrolet</option>
-            <option value="VOLKSWAGEN">Volkswagen</option>
-            <option value="JEEP">Jeep</option>
-            <option value="YAMAHA">Yamaha</option>
+            {marcas.map((marca, index) => (
+              <option key={index} value={marca}>
+                {marca}
+              </option>
+            ))}
           </select>
 
           <select
@@ -85,10 +93,11 @@ export default function Home() {
             onChange={(e) => setFiltros({ ...filtros, categoria: e.target.value })}
           >
             <option value="">Categorias</option>
-            <option value="Carro">Carro</option>
-            <option value="Moto">Moto</option>
-            <option value="SUV">SUV</option>
-            <option value="Off-Road">Off-Road</option>
+            {categorias.map((categoria, index) => (
+              <option key={index} value={categoria}>
+                {categoria}
+              </option>
+            ))}
           </select>
         </div>
 
