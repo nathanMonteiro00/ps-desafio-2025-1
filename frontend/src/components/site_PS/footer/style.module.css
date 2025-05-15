@@ -2,7 +2,7 @@
 
 .footer {
     font-family: "Noto Sans", sans-serif;
-    background-color: rgb(2, 3, 55);
+    background-color: rgb(6, 21, 47);
     color: white;
     width: 100%;
     padding: 2rem;
@@ -25,7 +25,7 @@
     flex-direction: column;
     gap: 1rem;
     padding-left: 5rem;
-    color: rgba(172, 172, 172, 0.681);
+    color: rgba(186, 185, 185, 0.722);
 }
 
 .address_title {

@@ -35,4 +35,11 @@ export async function destroyVehicle(id: string) {
   return JSON.stringify(res)
 }
 
+export async function comprar(id: string, quantidade: number) {
+  const res = await api('POST', `/veiculos/${id}/comprar`, {
+    data: { quantidade }
+  })
+
+  return JSON.stringify(res)
+}
 

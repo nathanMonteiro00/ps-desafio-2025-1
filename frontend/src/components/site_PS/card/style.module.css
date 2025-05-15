@@ -5,7 +5,7 @@
     font-family: "Noto Sans", sans-serif;
     box-shadow: 0 0 10px 5px rgba(157, 157, 157, 0.2);
     height: fit-content;
-    min-height: 24rem;
+    min-height: 100%;
     min-width: 16rem;
     display: flex;
     flex-direction: column;
@@ -21,7 +21,7 @@
     z-index: 100;
 }
 
-.card_name{
+.card_nome{
     color: rgba(29, 28, 28, 0.861);
     font-weight: bold;
     font-size: 18px;
@@ -36,7 +36,7 @@
 }
 
 .card_body{
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 5px 5px;
     text-align: center;
     width: 100%;
     display: flex;
@@ -46,8 +46,23 @@
     text-align: left;
 }
 
-.card_categoria{
+.card_categoria, .card_qtd{
     color: rgba(68, 66, 66, 0.697);
+}
+
+.card_buy_button{
+    margin-top: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 7px;
+    color: white;
+    font-weight: bold;
+    background-color: rgb(6, 85, 169);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.card_buy_button:hover{
+    background-color: rgb(59, 131, 194);
 }
 
 .card_marca{
@@ -60,29 +75,11 @@
     margin: 1vh 0;
 }
 
-.buy_button{
-    display: inline;
-    padding: 10px;
-    border: 1px none;
-    background-color: rgb(0, 89, 255);
-    color: white;
-    border-radius: 6px;
-    font-weight: bold;
-}
-
-
-
-.buy_button:hover{
-    background-color: rgb(81, 141, 250);
-}
-
 @media screen and (max-width: 700px){
     .card{
         flex-direction: row;
         width: 90vw;
         height: fit-content;
-        max-height: 160px;
-        min-height: 100px;
     }
 
     .card_img{
@@ -96,28 +93,26 @@
         max-height: none;
     }
 
-    .card_name{
+    .card_nome{
         font-size: 25px;
     }
 
-    .card_categoria{
+    .card_categoria, .card_qtd{
         font-size: 15px;
     }
 
-    .buy_button{
-    
-        max-width: 70%;
-        font-size: 12px;
-        padding: 6px 10px;
+    .card_buy_button{
+        font-size: 15px;
+        width: 50%;
     }
 }
 
 @media screen and (max-width: 400px){
-    .card_categoria{
+    .card_categoria, .card_marca, .card_qtd{
         font-size: 13px;
     }
 
-    .card_name{
+    .card_nome{
         font-size: 20px;
     }
 }

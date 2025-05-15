@@ -10,43 +10,95 @@ import Navbar from "@/components/site_PS/navbar/navbar"
 import Footer from "@/components/site_PS/footer/footer"
 import Slider from "@/components/site_PS/slider/slider"
 
-
 export default function Home() {
 
-   const [vehicles, setVehicles] = useState<vehicleType[] | undefined>()
-   const {toast} = useToast()
+  const [vehicles, setVehicles] = useState<vehicleType[] | undefined>()
+  const { toast } = useToast()
+  const [busca, setBusca] = useState<string>("")
 
-   useEffect ( () => {
-      const requestData = async() => {
-        const {response} = await api<vehicleType[]>('GET', `/veiculos`)
+  const [filtros, setFiltros] = useState({
+    marca: "",
+    categoria: "",
+  })
 
-        if (response){
-         setVehicles(response)
-        }else{
-         toast({
-            title: "Veículos não encontrados.",
-         })
-        }
+  useEffect(() => {
+    const requestData = async () => {
+      const { response } = await api<vehicleType[]>('GET', `/veiculos`)
+
+      if (response) {
+        setVehicles(response)
+      } else {
+        toast({
+          title: "Veículos não encontrados.",
+        })
       }
-      requestData()
-   }, [toast])
+    }
+    requestData()
+  }, [toast])
 
+  const veiculosFiltrados = vehicles?.filter((veiculo) => {
+    const buscaLower = busca.toLowerCase()
 
-  return ( <>
-    	
-   <div className={style.page}>
-      <Navbar logo="./images/logo.png"/>
-      <Slider></Slider>
-      <div className={style.infos}>
-         Conheça os nossos veículos!
+    const condBusca = 
+      veiculo.nome.toLowerCase().includes(buscaLower) ||
+      veiculo.marca.toLowerCase().includes(buscaLower) ||
+      veiculo.categorias.nome.toLowerCase().includes(buscaLower)
+
+    const condMarca = filtros.marca ? veiculo.marca === filtros.marca : true
+    const condCategoria = filtros.categoria ? veiculo.categorias.nome === filtros.categoria : true
+    const condEstoque =  veiculo.qtd_estoque > 0 
+
+    return condBusca && condMarca && condCategoria && condEstoque
+  })
+
+  return (
+    <>
+      <div className={style.page}>
+        <Navbar logo="./images/logo.png" />
+        <Slider />
+        <div className={style.titulo}>
+          Conheça os nossos veículos!
+        </div>
+
+        <div className={style.filtros}>
+          <input
+            type="text"
+            placeholder="O que você procura?"
+            value={busca}
+            onChange={(e) => setBusca(e.target.value)}
+          />
+
+          <select
+            value={filtros.marca}
+            onChange={(e) => setFiltros({ ...filtros, marca: e.target.value })}
+          >
+            <option value="">Marcas</option>
+            <option value="HONDA">Honda</option>
+            <option value="CHEVROLET">Chevrolet</option>
+            <option value="VOLKSWAGEN">Volkswagen</option>
+            <option value="JEEP">Jeep</option>
+            <option value="YAMAHA">Yamaha</option>
+          </select>
+
+          <select
+            value={filtros.categoria}
+            onChange={(e) => setFiltros({ ...filtros, categoria: e.target.value })}
+          >
+            <option value="">Categorias</option>
+            <option value="Carro">Carro</option>
+            <option value="Moto">Moto</option>
+            <option value="SUV">SUV</option>
+            <option value="Off-Road">Off-Road</option>
+          </select>
+        </div>
+
+        <div className={style.wrapper}>
+          {veiculosFiltrados?.map((vehicle: vehicleType, index: number) => (
+            <Card vehicle={vehicle} key={index} />
+          ))}
+        </div>
       </div>
-      <div className={style.wrapper}>
-         {vehicles?.map((vehicle: vehicleType, index: number) => (
-            <Card vehicle={vehicle} key={index}/>
-         ))}
-      </div>
-   </div>
-   <Footer></Footer>
-  
-  </> )
+      <Footer />
+    </>
+  )
 }

@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Barriecito&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Ancizar+Sans:ital,wght@0,100..1000;1,100..1000&family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&family=Rubik:ital,wght@0,300..900;1,300..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 .page{
     font-family: "Arina", system-ui;
     display: flex;
@@ -10,7 +12,7 @@
     padding: 0;
     height: 100%;
     width: 100%;
-    background: rgb(235, 231, 231);
+    background: rgb(235, 233, 233);
     position: relative;
     padding-bottom: 340px;
 }
@@ -24,13 +26,43 @@
     transition: all 0.5s ease; 
 }
 
-.infos{
+.titulo{
     display: flex;
     justify-content: center;
     margin: 100px 0px 50px;
     font-size: 40px;
-    color: rgb(4, 4, 51);
-    font-family: "Rubik", sans-serif;    
+    color: rgb(6, 39, 74);
+    font-family: "Lato", sans-serif;
+    font-style: italic;    
+}
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: "Lato", sans-serif;
+  gap: 1rem;
+  padding: 1rem;
+  justify-content: center;
+}
+
+.filtros input, .filtros select {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  color: rgba(0, 0, 0, 0.631);
+  background-color: rgba(229, 227, 227, 0.566);
+}
+
+.filtros select{
+    appearance: none; 
+    text-align: center; 
+    cursor: pointer;
+    transition: transform 0.25s ease;
+}
+
+.filtros select:hover{
+    transform: scale(1.05);
 }
 
 @media screen and (max-width: 700px){
@@ -38,10 +70,16 @@
         grid-template-columns: 1fr;
     }
 
-    .infos{
-        font-size: 20px;
+    .titulo{
+        font-size: 30px;
         flex-direction: column;
         align-items: center; 
+    }
+}
+
+@media screen and (max-width: 400px){
+    .titulo{
+        font-size: 25px;
     }
 }
 

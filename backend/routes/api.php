@@ -25,7 +25,7 @@ Route::get('/', function () {
 // Rotas Veiculos
 Route::apiResource('veiculos', VeiculosController::class)->except(['create', 'edit']);
 
-Route::patch('/veiculos/{veiculo}/comprar', [VeiculosController::class, 'comprar']);
+Route::post('/veiculos/{veiculo}/comprar',[VeiculosController::class, 'comprar']);
 
 // Rotas Categorias
 Route::apiResource('categorias', CategoriasController::class)->except(['create', 'edit']);

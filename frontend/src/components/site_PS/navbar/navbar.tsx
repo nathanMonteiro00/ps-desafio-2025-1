@@ -56,7 +56,7 @@ export default function Navbar({logo}: navBarProps){
                         ) : ( 
                             <>
                                 <FaUserCircle />
-                                Logar
+                                    Logar
                             </>
                         )}
                     </a>

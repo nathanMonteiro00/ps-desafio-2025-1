@@ -6,7 +6,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 
 import {Swiper, SwiperSlide} from 'swiper/react';
-import {Autoplay, Pagination} from 'swiper/modules'
 
 import {register} from 'swiper/element/bundle'
 
@@ -20,18 +19,18 @@ function App(){
                 pagination={{clickable: true}}
                 loop={true}
                 autoplay={{ delay: 3000 }}
-                speed={1000}
+                speed={1500}
                 >
                 <SwiperSlide>
                     <img className={style.image} src="/images/moto5.jpg" alt="Moto esportiva" />
                 </SwiperSlide>
 
                 <SwiperSlide>
-                    <img className={`${style.image} ${style.truckImage}`} src="/images/truckcopiatexto.jpg" alt="Caminhão" />
+                    <img className={`${style.image} ${style.truckImage}`} src="/images/truckV3.jpg" alt="Caminhão" />
                 </SwiperSlide>
 
                 <SwiperSlide>
-                    <img className={style.image} src="/images/famillia.jpg" alt="Carro" />
+                    <img className={style.image} src="/images/SUVfamiliaV5.jpg" alt="Carro SUV" />
                 </SwiperSlide>
             </Swiper>
         </div>
